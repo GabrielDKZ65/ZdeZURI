@@ -1,1 +1,103 @@
-# ZdeZURI
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Eu Te Amo</title>
+  <style>
+    body {
+      background-color: #ffb6c1;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 40px 20px;
+    }
+    h1 {
+      color: #c71585;
+      font-size: 2em;
+      margin-bottom: 20px;
+    }
+    #timer {
+      font-size: 1.5em;
+      color: #800040;
+      margin-bottom: 40px;
+    }
+    #slideshow img {
+      max-width: 80%;
+      height: auto;
+      border-radius: 10px;
+      margin-bottom: 40px;
+    }
+    p {
+      color: #800040;
+      font-size: 1.2em;
+      max-width: 800px;
+      margin: 0 auto;
+      line-height: 1.6em;
+    }
+  </style>
+</head>
+<body>
+  <h1>EU TE AMO HÁ:</h1>
+  <div id="timer">00 anos, 00 meses, 00 dias, 00:00:00</div>
+
+  <div id="slideshow">
+    <img id="slide" src="https://i.imgur.com/wQJ8cb6.jpeg" alt="Slideshow">
+  </div>
+
+  <p>
+    Eu te amo desde quando você nasceu meu amor, mesmo não estando todo tempo com você saiba que vc está sempre no meu coração! Agradeço sua mamãe por me escolher para ser seu dindo. Você é luz minha pequena, quero que saiba o quão especial você é e que você é uma das pessoas mais importantes do mundo pra mim. Vou te amar por toda eternidade, muito mais que mil milhões, muito mais que o universo. Eu sou capaz de dar minha vida por você, se pudesse escolher viver outras vidas eu não iria querer se vc não estivesse junto comigo. O dindo vai te apoiar sempre que você precisar e instruir a fazer o certo sempre, você vai ficar brava quando eu disser que você fez algo feio mas saiba que sempre será pensando no melhor pra você minha gatinha. Eu te amo infinitamente, para todo sempre, independente de qualquer coisa e mesmo depois que você ficar grandinha você sempre será minha pequena. E por último... Obrigado Dandara❤️ Tem mais uma coisa. Vai São Pauloo⚫🔴⚪
+  </p>
+
+  <script>
+    const startDate = new Date("2021-04-12T00:00:00-03:00"); // horário de Brasília
+    const timerElement = document.getElementById('timer');
+
+    function updateTimer() {
+      const now = new Date();
+      let diff = now - startDate;
+
+      const ms = {
+        second: 1000,
+        minute: 60 * 1000,
+        hour: 60 * 60 * 1000,
+        day: 24 * 60 * 60 * 1000,
+        month: 30.44 * 24 * 60 * 60 * 1000,
+        year: 365.25 * 24 * 60 * 60 * 1000
+      };
+
+      let years = Math.floor(diff / ms.year);
+      diff %= ms.year;
+      let months = Math.floor(diff / ms.month);
+      diff %= ms.month;
+      let days = Math.floor(diff / ms.day);
+      diff %= ms.day;
+      let hours = Math.floor(diff / ms.hour);
+      diff %= ms.hour;
+      let minutes = Math.floor(diff / ms.minute);
+      let seconds = Math.floor((diff % ms.minute) / ms.second);
+
+      timerElement.textContent = `${years} anos, ${months} meses, ${days} dias, ${hours.toString().padStart(2,'0')}:${minutes.toString().padStart(2,'0')}:${seconds.toString().padStart(2,'0')}`;
+    }
+
+    setInterval(updateTimer, 1000);
+    updateTimer();
+
+    const imgLinks = [
+      "https://i.imgur.com/wQJ8cb6.jpeg",
+      "https://i.imgur.com/TCnqqSP.jpeg",
+      "https://i.imgur.com/NAD4mh0.jpeg",
+      "https://i.imgur.com/OrGjnEO.jpeg",
+      "https://i.imgur.com/GatD70e.jpeg",
+      "https://i.imgur.com/z9Gmnzw.jpeg",
+      "https://i.imgur.com/3NvMkZ6.jpeg"
+    ];
+
+    let index = 0;
+    const slideImg = document.getElementById('slide');
+    setInterval(() => {
+      index = (index + 1) % imgLinks.length;
+      slideImg.src = imgLinks[index];
+    }, 2500);
+  </script>
+</body>
+</html>
